@@ -1,8 +1,13 @@
 ---
-import IndexVideo from "../../components/IndexVideo.astro";
 import Layout from "../../layouts/Layout.astro";
+import IndexVideo from "../../components/IndexVideo.astro";
+import CustomMarquee from "../../components/react/CustomMarquee";
+import {getTranslation} from "../../utils/i18n";
 ---
 
 <Layout>
   <IndexVideo/>
+  <CustomMarquee client:only="react">
+    <h4>{getTranslation('es', 'home.marquee')}</h4>
+  </CustomMarquee>
 </Layout>
