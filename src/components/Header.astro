@@ -1,0 +1,32 @@
+---
+import logo from '../assets/images/logo-white.svg';
+const lang = Astro.url.pathname.split('/')[1] ?? 'en';
+---
+
+<header>
+    <div class="logo-container">
+        <a href={`/${lang}`}>
+            <img src={logo.src} alt="logo" height="60px" width="auto"/>
+        </a>
+    </div>
+
+    <!--<nav>-->
+    <!--    <ul>-->
+    <!--        <li>-->
+    <!--            <a href="/">{getTranslation(lang, "home.title")}</a>-->
+    <!--        </li>-->
+    <!--    </ul>-->
+    <!--</nav>-->
+</header>
+
+<style lang="scss">
+  header {
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+
+    .logo-container {
+      padding: 1rem 1rem;
+    }
+  }
+</style>
