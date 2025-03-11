@@ -1,8 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import IndexVideo from "../../components/IndexVideo.astro";
-import CustomMarquee from "../../components/react/CustomMarquee";
 import {getTranslation} from "../../utils/i18n";
+import CustomMarquee from "../../components/react/CustomMarquee/CustomMarquee";
+import CarouselSwiper from "../../components/react/CarouselSwiper/CarouselSwiper";
+import type {EntityToList} from "../../models";
+
+const API_URL = import.meta.env.PUBLIC_API_URL
+const res = await fetch(`${API_URL}/club-events`);
+const clubEvents: EntityToList[] = await res.json();
 ---
 
 <Layout>
@@ -10,4 +16,8 @@ import {getTranslation} from "../../utils/i18n";
   <CustomMarquee client:only="react">
     <h4>{getTranslation('es', 'home.marquee')}</h4>
   </CustomMarquee>
+
+  <div class="home-content">
+    <CarouselSwiper client:only="react" clubEvents={clubEvents} title={getTranslation('es', 'home.carousel')}/>
+  </div>
 </Layout>

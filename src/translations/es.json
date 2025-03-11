@@ -1,6 +1,7 @@
 {
   "title": "Discoteca Eclipse",
   "home": {
-    "marquee": "Los mejores DJS – Programación de artistas invitados – Fiestas temáticas – Zonas VIP - Palco"
+    "marquee": "Los mejores DJS – Programación de artistas invitados – Fiestas temáticas – Zonas VIP - Palco",
+    "carousel": "Próximos eventos"
   }
 }
