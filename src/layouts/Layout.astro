@@ -1,8 +1,10 @@
 ---
+import '../global.scss';
+import '@fontsource-variable/jost';
 import ClientRouter from "astro/components/ClientRouter.astro";
-import Header from "../components/Header.astro";
+import Header from "../components/Header/Header.astro";
+import Footer from "../components/Footer/Footer.astro";
 import {getTranslation} from "../utils/i18n";
-import Footer from "../components/Footer.astro";
 
 const lang = Astro.url.pathname.split('/')[1] ?? 'en';
 
@@ -26,20 +28,3 @@ function t(key: string) {
 <Footer/>
 </body>
 </html>
-
-<style is:global>
-  @import url('/public/fonts/ClashDisplay_Complete/Fonts/WEB/css/clash-display.css');
-
-  html,
-  body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #070010;
-    color: white;
-  }
-
-  .home-content {
-    padding: 2rem;
-  }
-</style>

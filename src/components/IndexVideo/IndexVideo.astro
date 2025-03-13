@@ -1,0 +1,18 @@
+---
+import './IndexVideo.scss'
+import welcome1 from '../../assets/videos/welcome-1.mp4';
+import welcome2 from '../../assets/videos/welcome-2.mp4';
+import welcomeDesktop from '../../assets/videos/welcome-desktop.mp4';
+
+const vid = Math.random() < 0.5 ? 1 : 2;
+---
+
+<section class="video-container">
+  <video class="mobile-video" autoplay loop muted onvolumechange="this.muted = !this.muted">
+    <source src={vid === 1 ? welcome1 : welcome2} type="video/mp4">
+  </video>
+
+  <video class="desktop-video" autoplay loop muted onvolumechange="this.muted = !this.muted">
+    <source src={welcomeDesktop} type="video/mp4">
+  </video>
+</section>

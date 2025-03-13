@@ -1,0 +1,13 @@
+---
+import './Slogan.scss';
+import {getTranslation} from "../../utils/i18n";
+interface Props {
+  lang: string;
+}
+
+const {lang} = Astro.props as Props;
+---
+
+<h1 class="slogan">
+  {getTranslation(lang, 'home.slogan')}
+</h1>

@@ -1,0 +1,29 @@
+---
+import './UpcomingEvents.scss';
+import ClubEventCard from "../ClubEventCard/ClubEventCard.astro";
+import type {ClubEventToList} from "../../models";
+import {getTranslation} from "../../utils/i18n";
+
+interface Props {
+  lang: string;
+  clubEvents: ClubEventToList[];
+}
+
+const {lang, clubEvents} = Astro.props as Props;
+---
+
+<section class="upcoming-events-container">
+  <h1>{getTranslation(lang, 'home.upcomingEvents')}</h1>
+
+  <div class="cards-container-slim">
+    {clubEvents.slice(0, 3).map(event =>
+      <ClubEventCard item={event} lang={lang}/>
+    )}
+  </div>
+
+  <div class="cards-container">
+    {clubEvents.map(event =>
+      <ClubEventCard item={event} lang={lang}/>
+    )}
+  </div>
+</section>
