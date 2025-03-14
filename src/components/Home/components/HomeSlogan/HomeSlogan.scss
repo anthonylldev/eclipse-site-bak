@@ -1,5 +1,5 @@
 .slogan {
-  color: white;
+  color: #F3EAFF;
   font-size: 40px;
   font-weight: 900;
   font-family: 'ClashDisplay-Bold', sans-serif;
@@ -11,6 +11,8 @@
   text-align: center;
   margin: 2rem 0 0 0;
   padding: 0;
+  position: relative;
+  z-index: 10;
 
   @media (min-width: 576px) {
     font-size: 50px;

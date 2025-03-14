@@ -1,14 +1,14 @@
 ---
 import './ClubEventCard.scss';
-import type {ClubEventToList} from "../../models";
-import {getTranslation} from "../../utils/i18n";
+import type {ClubEventToList} from "../../../models";
+import {getTranslation} from "../../../utils/i18n";
 
 interface Props {
-  lang: string;
   item: ClubEventToList;
 }
 
-const {item, lang} = Astro.props as Props;
+const {item} = Astro.props as Props;
+const lang = Astro.url.pathname.split('/')[1] ?? 'en';
 
 const formattedDate = new Intl.DateTimeFormat(lang, {
   year: 'numeric',
@@ -17,10 +17,6 @@ const formattedDate = new Intl.DateTimeFormat(lang, {
   hour: '2-digit',
   minute: '2-digit',
 }).format(new Date(item.date));
-
-function buyTickets() {
-  window.location.href = item.ticketsUrl;
-}
 ---
 
 <div class="card-container">

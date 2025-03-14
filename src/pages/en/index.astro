@@ -1,32 +1,5 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import IndexVideo from "../../components/IndexVideo/IndexVideo.astro";
-import UpcomingEvents from "../../components/UpcomingEvents/UpcomingEvents.astro";
-import Slogan from "../../components/Slogan/Slogan.astro";
-import CustomMarquee from "../../components/react/CustomMarquee/CustomMarquee";
-import {getTranslation} from "../../utils/i18n";
-import {getUpcomingEvents} from "../../services/club-events.service";
-import type {ClubEventToList} from "../../models";
-
-const lang = Astro.url.pathname.split('/')[1] ?? 'en';
-const clubEvents: ClubEventToList[] = await getUpcomingEvents();
+import Home from "../../components/Home/Home.astro";
 ---
 
-<Layout>
-  <IndexVideo/>
-
-  <CustomMarquee client:only="react">
-    <h4>{getTranslation(lang, 'home.marquee')}</h4>
-  </CustomMarquee>
-
-  <div class="home-content">
-    {clubEvents.length > 0 &&
-      <UpcomingEvents
-        lang={lang}
-        clubEvents={clubEvents}
-      />
-    }
-
-    <Slogan lang={lang}/>
-  </div>
-</Layout>
+<Home/>

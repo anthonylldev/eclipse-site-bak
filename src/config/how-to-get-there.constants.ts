@@ -1,0 +1,1 @@
+export const HOW_TO_GET_THERE = 'https://www.google.es/maps/dir//Eclipse,+Av.+de+Juan+Carlos+I,+105,+30850+Totana,+Murcia/@37.7684146,-1.5779674,27582m/data=!3m1!1e3!4m9!4m8!1m0!1m5!1m1!1s0xd6493a19a0bfc95:0xd91a9f320de97f30!2m2!1d-1.495567!2d37.7684433!3e0?entry=ttu&g_ep=EgoyMDI1MDMxMS4wIKXMDSoASAFQAw%3D%3D';

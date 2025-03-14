@@ -6,5 +6,24 @@
     "upcomingEvents": "Próximos eventos",
     "info": "Info",
     "buyTickets": "Comprar entradas"
-  }
+  },
+  "menu": {
+    "home": "Inicio",
+    "clubEvents": "Eventos",
+    "djs": "DJs",
+    "contact": "Contacto",
+    "faq": "FAQ"
+  },
+  "footer": {
+    "address": {
+      "title": "Dirección",
+      "howToGetThere": "Como llegar",
+      "openingHours": "Horario de apertura:",
+      "fridayAndSaturday":"Viernes y Sábado: 22:00H",
+      "sunday": "Domingo: 17:00H"
+    },
+    "menu": "Menú",
+    "contact": "Contacto"
+  },
+  "copy": "Discoteca Eclipse, Todos los derechos reservados."
 }

@@ -1,0 +1,66 @@
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Jost Variable', sans-serif;
+  text-transform: uppercase;
+  gap: .5rem;
+  color: #F3EAFF;
+
+  h3 {
+    font-family: 'ClashDisplay-Bold', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    a, p {
+      text-decoration: none;
+      font-size: 14px;
+      margin: 0;
+      font-weight: 500;
+      color: #F3EAFF;
+    }
+
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &.xl {
+      gap: 1.5rem;
+
+      .address, .schedule {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .address {
+        a {
+          font-weight: 600;
+          margin-top: 0.25rem;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .footer-section {
+    width: 30%;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-content {
+    padding: 6rem;
+  }
+}

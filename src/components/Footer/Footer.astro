@@ -1,3 +1,27 @@
 ---
-
+import './Footer.scss';
+import {getTranslation} from "../../utils/i18n";
+import logo from '../../assets/images/logo.svg';
+import FooterAddress from "./components/FooterAddress/FooterAddress.astro";
+import FooterMenu from "./components/FooterMenu/FooterMenu.astro";
+import FooterSocial from "./components/FooterSocial/FooterSocial.astro";
+const currentYear = new Date().getFullYear();
+const lang = Astro.url.pathname.split('/')[1] ?? 'en';
+import gradient from '../../assets/images/gradient.png'
 ---
+
+<footer>
+  <img src={gradient.src} alt="gradient" class="gradient" draggable="false"/>
+
+  <div class="sections">
+    <FooterAddress/>
+    <FooterMenu/>
+    <FooterSocial/>
+  </div>
+
+  <img src={logo.src} alt="Logo" class="logo"/>
+
+  <div class="copyright">
+    <p>&copy; {currentYear} {getTranslation(lang, 'copy')}</p>
+  </div>
+</footer>
