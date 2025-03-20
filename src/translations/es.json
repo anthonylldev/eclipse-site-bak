@@ -2,7 +2,7 @@
   "title": "Discoteca Eclipse",
   "home": {
     "slogan": "Más que una discoteca, ¡Eclipse es una experiencia!",
-    "marquee": "Los mejores DJS – Programación de artistas invitados – Fiestas temáticas – Zonas VIP - Palco - Los mejores DJS – Programación de artistas invitados – Fiestas temáticas – Zonas VIP - Palco",
+    "marquee": "Los mejores DJS – Programación de artistas invitados – Fiestas temáticas – Zonas VIP - Palco",
     "upcomingEvents": "Próximos eventos",
     "info": "Info",
     "buyTickets": "Comprar entradas"
@@ -25,5 +25,5 @@
     "menu": "Menú",
     "contact": "Contacto"
   },
-  "copy": "Discoteca Eclipse, Todos los derechos reservados."
+  "copy": "Discoteca Eclipse, todos los derechos reservados."
 }

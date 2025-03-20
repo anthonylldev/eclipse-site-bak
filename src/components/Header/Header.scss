@@ -3,7 +3,47 @@ header {
   z-index: 1000;
   top: 0;
 
-  .logo-container {
-    padding: 1rem 1rem;
+  .navbar {
+    padding: 1rem;
+
+    .hamburger {
+      display: none;
+    }
+
+    .links-container {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  header {
+    .navbar {
+      padding: 1.5rem 2rem;
+
+      .hamburger {
+        display: none;
+      }
+
+      .links-container {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  header {
+    .navbar {
+      padding: 2rem 3rem;
+
+      .hamburger {
+        display: none;
+      }
+
+      .links-container {
+        display: none;
+      }
+    }
   }
 }

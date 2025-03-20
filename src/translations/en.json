@@ -1,10 +1,29 @@
 {
   "title": "Eclipse Nightclub",
   "home": {
-    "slogan": "More than a nightclub, Eclipse is an experience!",
-    "marquee": "The best DJs – Guest artist lineup – Themed parties – VIP areas – Stage – The best DJs – Guest artist lineup – Themed parties – VIP areas – Stage",
+    "slogan": "More than just a nightclub, Eclipse is an experience!",
+    "marquee": "The best DJs – Guest artist line-ups – Themed parties – VIP areas – Stage",
     "upcomingEvents": "Upcoming events",
     "info": "Info",
     "buyTickets": "Buy tickets"
-  }
+  },
+  "menu": {
+    "home": "Home",
+    "clubEvents": "Events",
+    "djs": "DJs",
+    "contact": "Contact",
+    "faq": "FAQ"
+  },
+  "footer": {
+    "address": {
+      "title": "Address",
+      "howToGetThere": "How to get there",
+      "openingHours": "Opening hours:",
+      "fridayAndSaturday": "Friday & Saturday: 10:00PM",
+      "sunday": "Sunday: 5:00PM"
+    },
+    "menu": "Menu",
+    "contact": "Contact"
+  },
+  "copy": "Eclipse Nightclub. All rights reserved."
 }

@@ -7,6 +7,8 @@ import HomeSlogan from "./components/HomeSlogan/HomeSlogan.astro";
 import CustomMarquee from "../react/CustomMarquee/CustomMarquee";
 import type {ClubEventToList} from "../../models";
 import {getUpcomingEvents} from "../../services/club-events.service";
+import HomeBrands from "./components/HomeBrands/HomeBrands.astro";
+import HomeClub from "./components/HomeClub/HomeClub.astro";
 
 const lang = Astro.url.pathname.split('/')[1] ?? 'en';
 const clubEvents: ClubEventToList[] = await getUpcomingEvents();
@@ -14,16 +16,18 @@ const clubEvents: ClubEventToList[] = await getUpcomingEvents();
 
 <Layout>
   <HomeVideo/>
+  <HomeSlogan/>
 
-  <!--<CustomMarquee client:only="react">-->
-  <!--  <h4>{getTranslation(lang, 'home.marquee')}</h4>-->
-  <!--</CustomMarquee>-->
+  <CustomMarquee client:only="react">
+    <h4>{getTranslation(lang, 'home.marquee')}</h4>
+  </CustomMarquee>
 
   <div class="home-content">
     {clubEvents.length > 0 &&
       <HomeUpcomingEvents clubEvents={clubEvents}/>
     }
 
-    <HomeSlogan/>
+    <HomeClub/>
+    <HomeBrands/>
   </div>
 </Layout>

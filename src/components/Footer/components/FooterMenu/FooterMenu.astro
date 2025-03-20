@@ -9,7 +9,7 @@ const clubEventsRoute = lang === 'es' ? '/es/eventos' : '/en/events';
 <section class="footer-section">
   <h3>{getTranslation(lang, 'footer.menu')}</h3>
   <div class="content">
-    <a href="/">{getTranslation(lang, 'menu.home')}</a>
+    <a href={`/${lang}`}>{getTranslation(lang, 'menu.home')}</a>
     <a href={clubEventsRoute}>{getTranslation(lang, 'menu.clubEvents')}</a>
   </div>
 </section>

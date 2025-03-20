@@ -9,7 +9,7 @@
   overflow: hidden;
   text-transform: uppercase;
   text-align: center;
-  margin: 2rem 0 0 0;
+  margin: 2rem 0;
   padding: 0;
   position: relative;
   z-index: 10;
@@ -20,12 +20,12 @@
 
   @media (min-width: 768px) {
     font-size: 60px;
-    margin: 4rem 0 0 0;
+    margin: 4rem 0;
   }
 
   @media (min-width: 992px) {
     font-size: 50px;
-    margin: 6rem 0 0 0;
+    margin: 6rem 0;
   }
 
   @media (min-width: 1200px) {

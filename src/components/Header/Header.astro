@@ -5,9 +5,11 @@ const lang = Astro.url.pathname.split('/')[1] ?? 'en';
 ---
 
 <header>
-  <div class="logo-container">
+  <nav class="navbar">
     <a href={`/${lang}`}>
-      <img src={logo.src} alt="logo" height="60px" width="auto"/>
+      <img src={logo.src} alt="logo" height="60px" width="auto" class="logo"/>
     </a>
-  </div>
+    <button class="hamburger"></button>
+    <ul class="links-container"></ul>
+  </nav>
 </header>
