@@ -28,37 +28,39 @@ jobs:
         run: bun run build -- --production
 
       - name: 📡 Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: astro-dist
           path: dist
 
   deploy:
-    name: Deploy to EC2
+    name: Deploy to EC2 via SSM
     needs: build
     runs-on: ubuntu-latest
 
     steps:
       - name: 📥 Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: astro-dist
           path: dist
 
-      - name: 🔑 Setup SSH Agent & Deploy files
+      - name: 🔄 Sync files to EC2 using SSM
         env:
-          SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
-          EC2_USER: ${{ secrets.EC2_USER }}
-          EC2_HOST: ${{ secrets.EC2_HOST }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          INSTANCE_ID: ${{ secrets.EC2_INSTANCE_ID }}
           DEPLOY_PATH: ${{ secrets.EC2_DEPLOY_PATH }}
 
         run: |
-          echo "$SSH_KEY" | ssh-agent bash -c '
-            ssh-add -;
+          zip -r astro-dist.zip dist/
 
-            # Remove old files in EC2
-            ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "rm -rf $DEPLOY_PATH/*";
-
-            # Copy new build files
-            scp -r dist/* $EC2_USER@$EC2_HOST:$DEPLOY_PATH;
-          '
+          aws ssm send-command \
+            --document-name "AWS-RunShellScript" \
+            --targets Key=instanceIds,Values=$INSTANCE_ID \
+            --parameters 'commands=[
+              "mkdir -p $DEPLOY_PATH",
+              "aws ssm put-parameter --name /deploy/astro-dist.zip --type SecureString --value fileb://astro-dist.zip",
+              "aws ssm get-parameter --name /deploy/astro-dist.zip --with-decryption --query Parameter.Value --output text > /tmp/astro-dist.zip",
+              "unzip -o /tmp/astro-dist.zip -d $DEPLOY_PATH"
+            ]' \
+            --region $AWS_REGION
