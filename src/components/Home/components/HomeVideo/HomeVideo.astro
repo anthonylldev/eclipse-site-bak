@@ -8,11 +8,11 @@ const vid = Math.random() < 0.5 ? 1 : 2;
 ---
 
 <section class="video-container">
-  <video class="mobile-video" autoplay loop muted onvolumechange="this.muted = !this.muted">
+  <video class="mobile-video" autoplay loop muted>
     <source src={vid === 1 ? welcome1 : welcome2} type="video/mp4">
   </video>
 
-  <video class="desktop-video" autoplay loop muted onvolumechange="this.muted = !this.muted">
+  <video class="desktop-video" autoplay loop muted>
     <source src={welcomeDesktop} type="video/mp4">
   </video>
 

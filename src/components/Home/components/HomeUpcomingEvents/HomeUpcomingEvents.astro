@@ -17,13 +17,13 @@ const lang = Astro.url.pathname.split('/')[1] ?? 'en';
 
   <div class="cards-container-slim">
     {clubEvents.slice(0, 3).map(event =>
-      <ClubEventCard item={event} lang={lang}/>
+      <ClubEventCard item={event}/>
     )}
   </div>
 
   <div class="cards-container">
     {clubEvents.map(event =>
-      <ClubEventCard item={event} lang={lang}/>
+      <ClubEventCard item={event}/>
     )}
   </div>
 </section>

@@ -1,4 +1,5 @@
 <script is:inline lang="ts">
-  const lang = localStorage.getItem('lang') ?? 'en'
+  const lang = localStorage.getItem('lang') ?? 'es'
+  localStorage.setItem('lang', lang)
   window.location.href = lang;
 </script>
