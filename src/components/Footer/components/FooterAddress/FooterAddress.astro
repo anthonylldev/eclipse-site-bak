@@ -1,0 +1,23 @@
+---
+import '../../styles/FooterSection.scss'
+import {HOW_TO_GET_THERE} from "../../../../config/how-to-get-there.constants";
+import {getTranslation} from "../../../../utils/i18n";
+const lang = Astro.url.pathname.split('/')[1] ?? 'en';
+---
+
+<section class="footer-section">
+  <h3>{getTranslation(lang, 'footer.address.title')}</h3>
+  <div class="content xl">
+    <div class="address">
+      <p>Av. de Juan Carlos I, 105, 30850 Totana, Murcia</p>
+      <a href={HOW_TO_GET_THERE}>
+        {getTranslation(lang, 'footer.address.howToGetThere')}
+      </a>
+    </div>
+    <div class="schedule">
+      <p>{getTranslation(lang, 'footer.address.openingHours')}</p>
+      <p>{getTranslation(lang, 'footer.address.fridayAndSaturday')}</p>
+      <p>{getTranslation(lang, 'footer.address.sunday')}</p>
+    </div>
+  </div>
+</section>
