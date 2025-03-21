@@ -1,0 +1,64 @@
+name: 🚀 Deploy Astro to EC2
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build Astro Site
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Install Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: 📦 Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: 🏗️ Build for production
+        run: bun run build -- --production
+
+      - name: 📡 Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: astro-dist
+          path: dist
+
+  deploy:
+    name: Deploy to EC2
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: astro-dist
+          path: dist
+
+      - name: 🔑 Setup SSH Agent & Deploy files
+        env:
+          SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+          EC2_USER: ${{ secrets.EC2_USER }}
+          EC2_HOST: ${{ secrets.EC2_HOST }}
+          DEPLOY_PATH: ${{ secrets.EC2_DEPLOY_PATH }}
+
+        run: |
+          echo "$SSH_KEY" | ssh-agent bash -c '
+            ssh-add -;
+
+            # Remove old files in EC2
+            ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "rm -rf $DEPLOY_PATH/*";
+
+            # Copy new build files
+            scp -r dist/* $EC2_USER@$EC2_HOST:$DEPLOY_PATH;
+          '

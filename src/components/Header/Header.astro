@@ -1,0 +1,15 @@
+---
+import './Header.scss'
+import logo from '../../assets/images/logo-slim.svg';
+const lang = Astro.url.pathname.split('/')[1] ?? 'en';
+---
+
+<header>
+  <nav class="navbar">
+    <a href={`/${lang}`}>
+      <img src={logo.src} alt="logo" height="60px" width="auto" class="logo"/>
+    </a>
+    <button class="hamburger"></button>
+    <ul class="links-container"></ul>
+  </nav>
+</header>

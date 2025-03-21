@@ -1,0 +1,17 @@
+---
+import '../../styles/FooterSection.scss'
+import {EclipseSocial} from "../../../../config/eclipse-social.enum";
+import {getTranslation} from "../../../../utils/i18n";
+const lang = Astro.url.pathname.split('/')[1] ?? 'en';
+---
+
+<section class="footer-section">
+  <h3>{getTranslation(lang, 'footer.contact')}</h3>
+  <div class="content">
+    <a href={`mailto:${EclipseSocial.EMAIL}`} target="_blank" rel="noopener">Email</a>
+    <a href={EclipseSocial.WHATSAPP} target="_blank" rel="noopener">Whatsapp</a>
+    <a href={EclipseSocial.INSTAGRAM} target="_blank" rel="noopener">Instagram</a>
+    <a href={EclipseSocial.FACEBOOK} target="_blank" rel="noopener">Facebook</a>
+    <a href={EclipseSocial.TIKTOK} target="_blank" rel="noopener">Tiktok</a>
+  </div>
+</section>

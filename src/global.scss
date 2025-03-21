@@ -1,0 +1,28 @@
+@import url('/public/fonts/ClashDisplay_Complete/Fonts/WEB/css/clash-display.css');
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #070010;
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.home-content {
+  padding: 2rem;
+}
+
+@media (min-width: 768px) {
+  .home-content {
+    padding: 4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home-content {
+    padding: 6rem;
+  }
+}
